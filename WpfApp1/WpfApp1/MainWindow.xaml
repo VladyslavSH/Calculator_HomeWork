@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="400">
-    <Grid>
+    <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -42,7 +42,6 @@
         <Button Name="Percent" Grid.Row="5" FontSize="35">%</Button>
         <Button Name="Null" Grid.Column="1" Grid.Row="5" FontSize="35">0</Button>
         <Button Name="Comma" Grid.Column="2" Grid.Row="5" FontSize="35">,</Button>
-
-
+        <TextBox Name="textBlock" Grid.ColumnSpan="4" FontSize="35"></TextBox>
     </Grid>
 </Window>
