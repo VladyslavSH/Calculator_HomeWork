@@ -39,7 +39,7 @@
         <Button Name="Num2" Grid.Column="1" Grid.Row="4" FontSize="35">2</Button>
         <Button Name="Num3" Grid.Column="2" Grid.Row="4" FontSize="35">3</Button>
         <Button Name="Equally" Grid.Column="3" Grid.Row="4" Grid.RowSpan="5" FontSize="35">=</Button>
-        <Button Name="Percent" Grid.Row="5" FontSize="35">%</Button>
+        <Button Name="Percent" Grid.Row="5" FontSize="35">100</Button>
         <Button Name="Null" Grid.Column="1" Grid.Row="5" FontSize="35">0</Button>
         <Button Name="Comma" Grid.Column="2" Grid.Row="5" FontSize="35">,</Button>
         <TextBox Name="textBox" Grid.ColumnSpan="2" FontSize="10"></TextBox>
