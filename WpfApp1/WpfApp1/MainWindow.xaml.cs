@@ -20,7 +20,6 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        string [] parser = null;
         double num1, num2, rez;
         int flag = 0;
         public MainWindow()
@@ -28,7 +27,7 @@ namespace WpfApp1
             InitializeComponent();
             foreach (var item in grid.Children)
             {
-                if((item as Button) is Button)
+                if ((item as Button) is Button)
                 {
                     (item as Button).Click += MainWindow_Click;
                 }
@@ -37,25 +36,32 @@ namespace WpfApp1
 
         private void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            if((sender as Button).Content.ToString() == "Delete")
+            if ((sender as Button).Content.ToString() == "Delete")
             {
                 textBlock.Undo();
             }
             else if ((sender as Button).Content.ToString() == "C") textBlock.Clear();
-            if ((sender as Button).Content.ToString() == "=")
+            else if ((sender as Button).Content.ToString() == "=")
             {
-                parser[0] = textBlock.Text;
-                switch((sender as Button).Content.ToString())
+                num2 = Convert.ToInt32(textBlock.Text);
+                switch (flag)
                 {
-                    case "+": ; break;
-            } 
-            if ((sender as Button).Content.ToString() == "+") { flag = 1; num1 = Convert.ToInt32(textBlock.Text); }
-            if ((sender as Button).Content.ToString() == "-") { flag = 2; num1 = Convert.ToInt32(textBlock.Text); }
-            if ((sender as Button).Content.ToString() == "*") { flag = 3; num1 = Convert.ToInt32(textBlock.Text); }
-            if ((sender as Button).Content.ToString() == "/") { flag = 4; num1 = Convert.ToInt32(textBlock.Text); }
-            else textBlock.Text += (sender as Button).Content.ToString();
-        }
-        
+                    case 1: rez = num1 + num2; break;
+                }
+                textBox.Text += textBlock.Text + " = " + rez;
+                textBlock.Clear();
+                num1 = 0; num2 = 0;
+            }
+            else if ((sender as Button).Content.ToString() == "+") { flag = 1; num1 = Convert.ToInt32(textBlock.Text); textBox.Text = textBlock.Text + "+"; textBlock.Clear(); }
+            else if ((sender as Button).Content.ToString() == "-") { flag = 2; num1 = Convert.ToInt32(textBlock.Text); textBox.Text = textBlock.Text + "-"; textBlock.Clear(); }
+            else if ((sender as Button).Content.ToString() == "*") { flag = 3; num1 = Convert.ToInt32(textBlock.Text); textBox.Text = textBlock.Text + "*"; textBlock.Clear(); }
+            else if ((sender as Button).Content.ToString() == "/") { flag = 4; num1 = Convert.ToInt32(textBlock.Text); textBox.Text = textBlock.Text + "/"; textBlock.Clear(); }
 
+            else textBlock.Text += (sender as Button).Content.ToString();
+            Console.WriteLine(num1);
+            Console.WriteLine(num2);
+            Console.WriteLine(rez);
+            Console.WriteLine();
+        }
     }
 }
